@@ -214,6 +214,7 @@ body, html {
         .item {
             border-bottom: 2px $primary-color solid;
             margin-bottom: 10px;
+            display: block;
             padding: 15px 10px 0;
             
             .details {

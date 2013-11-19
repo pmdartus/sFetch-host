@@ -36,4 +36,48 @@ angular.module('SalesFetchApp.filters', []).
             }
             return month + ', ' + date.getDate();
         };
+    }).
+    filter('srcImg', function() {
+        return function (url, infoNeeded) {
+            
+            //Regex provider
+            var regex = /https?\:\/\/\D{0,4}\.?(.*)\.\D{1,4}\/.*\.(\D*)$/;
+            var infos = regex.exec(url);
+            console.info(infoNeeded);
+
+            switch(infoNeeded) {
+            case "provider":
+                if (infos) {
+                    return infos[1].toLowerCase();
+                } else {
+                    return "salesforce";
+                }
+                break;
+            case "type":
+                if (infos) {
+                    switch(infos[2].toLowerCase()) {
+                        case "pptx":
+                            return "ppt";
+                        case "docx":
+                            return "doc";
+                        case "xlsx":
+                            return "xls";
+                        case "png":
+                        case "jpg":
+                        case "jpeg":
+                        case "gif":
+                            return "img";
+                        default:
+                            return infos[2].toLowerCase();
+                    }
+                } else {
+                    return "doc";
+                }
+                break;
+            default:
+                console.log("error: srcImg called with wrong infoNeeded param");
+                return "error";
+                break;
+            }
+        };
     });
