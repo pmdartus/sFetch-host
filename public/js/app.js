@@ -14,7 +14,7 @@ config(function ($routeProvider, $locationProvider) {
       templateUrl: 'partials/timeline',
       controller: 'ContactCtrl'
     }).
-    when('/documents/:docId', {
+    when('/full/:docId', {
       templateUrl: 'partials/document',
       controller: 'DocumentCtrl'
     }).
@@ -32,9 +32,9 @@ factory('Base64', function() {
             '=';
     return {
         encode: function (input) {
-            var output = "";
-            var chr1, chr2, chr3 = "";
-            var enc1, enc2, enc3, enc4 = "";
+            var output = '';
+            var chr1, chr2, chr3 = '';
+            var enc1, enc2, enc3, enc4 = '';
             var i = 0;
 
             do {
@@ -58,8 +58,8 @@ factory('Base64', function() {
                         keyStr.charAt(enc2) +
                         keyStr.charAt(enc3) +
                         keyStr.charAt(enc4);
-                chr1 = chr2 = chr3 = "";
-                enc1 = enc2 = enc3 = enc4 = "";
+                chr1 = chr2 = chr3 = '';
+                enc1 = enc2 = enc3 = enc4 = '';
             } while (i < input.length);
 
             return output;
