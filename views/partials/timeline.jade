@@ -2,7 +2,7 @@ h1(ng-show='loading') Loading
 .timeline(ng-hide='loading')
   h3 This week
   section.timeslice
-    a(href='full/{{item.id}}').row.item(ng-repeat='item in items')
+    .row.item(ng-repeat='item in items')(ng-click='displayDocument(item.id)')
       .headerItem
         .icons
           img.iconItem(src='img/jpg.png')
