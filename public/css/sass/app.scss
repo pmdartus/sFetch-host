@@ -1,0 +1,263 @@
+//Foundation override
+$secondary-color: rgb(63, 150, 69);
+$primary-color: rgb(122, 193, 67);
+$neutral-color: #eee;
+//Personnal variables
+$header-height: 400;
+$menu-height: 50;
+$menu-font-size: 20;
+
+@font-face {
+	font-family: 'tektonpro-regular';
+	src: url('tektonpro-regular.eot');
+	src: local('☺'), url('tektonpro-regular.woff') format('woff'), url('tektonpro-regular.ttf') format('truetype'), url('tektonpro-regular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: HelveticaNeue;
+	src: url('../fonts/HelveticaNeueLTStd-Roman.otf');
+    font-weight: normal;
+}
+
+@font-face {
+	font-family: HelveticaNeue;
+	src: url('../fonts/HelveticaNeueLTStd-Md.otf');
+    font-weight: bold;
+}
+
+@font-face {
+	font-family: HelveticaNeue;
+	src: url('../fonts/HelveticaNeueLTStd-Md.otf');
+    font-weight:medium;
+}
+
+@font-face {
+	font-family: HelveticaNeue;
+	src: url('../fonts/HelveticaNeueLTStd-Th.otf');
+    font-weight:thin;
+}
+
+
+$body-font-family: HelveticaNeue, Cambria, 'Times New Roman', Times, sans-serif !default;
+$header-font-family: HelveticaNeue, Cambria, 'Times New Roman', Times, sans-serif !default;
+
+// Global Foundation Settings
+@import "settings";
+
+// Comment out this import if you don't want to use normalize
+@import "normalize";
+
+// Comment out this import if you are customizing you imports below
+@import "foundation";
+@import "compass/css3";
+
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+// @import "foundation/components/global"; // *always required
+// @import "foundation/components/grid";
+
+//
+// Use this grid if you want to start using the new Foundation 5 grid early.
+// It will change breakpoints to min-width: 640px and 1024px.
+//
+// @import "foundation/components/grid-5";
+//
+
+// @import "foundation/components/visibility";
+// @import "foundation/components/block-grid";
+// @import "foundation/components/type";
+// @import "foundation/components/buttons";
+// @import "foundation/components/forms"; // *requires components/buttons
+// @import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
+// @import "foundation/components/button-groups"; // *requires components/buttons
+// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
+// @import "foundation/components/split-buttons"; // *requires components/buttons
+// @import "foundation/components/flex-video";
+// @import "foundation/components/section";
+// @import "foundation/components/top-bar";  // *requires components/grid
+// @import "foundation/components/orbit";
+// @import "foundation/components/reveal";
+// @import "foundation/components/joyride";
+// @import "foundation/components/clearing";
+// @import "foundation/components/alert-boxes";
+// @import "foundation/components/breadcrumbs";
+// @import "foundation/components/keystrokes";
+// @import "foundation/components/labels";
+// @import "foundation/components/inline-lists";
+// @import "foundation/components/pagination";
+// @import "foundation/components/panels";
+// @import "foundation/components/pricing-tables";
+// @import "foundation/components/progress-bars";
+// @import "foundation/components/side-nav";
+// @import "foundation/components/sub-nav";
+// @import "foundation/components/switch";
+// @import "foundation/components/magellan";
+// @import "foundation/components/tables";
+// @import "foundation/components/thumbs";
+// @import "foundation/components/tooltips";
+// @import "foundation/components/dropdown";
+
+
+//-------------------------------------------------------
+//              Main Styles
+//-------------------------------------------------------
+
+body, html {
+    background: $neutral-color;
+    
+    //RESPONSIVE MINI SCREEN
+    h2 { font-size: 1em; }
+    h3 { font-size: 0.8em; }
+    h4 { font-size: 0.6em; }
+    p { font-size: 0.8em; }
+}
+
+
+
+//-------------------------------------------------------
+//              Search bar
+//-------------------------------------------------------
+
+.searchBar {
+    background: white;
+    padding-top: 10px;
+    
+    img {
+        width: 18px;
+        margin: 5px 5px 0;
+        
+        &:first-child {
+            margin-left: 10px;
+        }
+    }
+    
+    img, input { float: left; }
+    
+    input {
+        width: 75%;
+        border: none;
+    }
+}
+
+
+
+//-------------------------------------------------------
+//              header Contact
+//-------------------------------------------------------
+
+.headerContact {
+    background: $primary-color;
+    color: white;
+    padding: 10px 0 0;
+    
+    .contactBuble {
+        @include border-radius(40px);
+        width: 80px;
+        overflow: hidden;
+        border: 1px white solid;
+        float: left;
+        margin: 0 10px; 
+        
+        .image {
+            width: 80px; height: 80px;
+        }
+    }
+    
+    .line {
+        float: left;
+        h2 {
+            color: white;
+        }
+        
+        .desc {
+            background: white;
+            color: black;
+            padding: 5px 5px 0;
+        }
+        
+        .minor {
+            font-weight: 200 !important;
+        }
+        
+    }
+    
+    .actions {
+        background: rgba(255, 255, 255, 0.4);
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 10px;
+    }
+}
+
+
+
+//-------------------------------------------------------
+//              Timeline
+//-------------------------------------------------------
+
+.timeline {
+    padding: 10px;
+    
+    h3 {
+        color: #333;
+        text-shadow: 1px 1px white;
+        font-weight: normal;
+    }
+    
+    .timeslice {
+        background: white;
+        padding: 0 10px 20px;
+        
+        .item {
+            border-bottom: 2px $primary-color solid;
+            margin-bottom: 10px;
+            padding: 15px 10px 0;
+            
+            .details {
+                text-align: justify;
+            }
+            
+            .headerItem {
+                .date {
+                    font-weight: normal;
+                    float: left;
+                    //BIG SCREEN
+                    //text-align: right;
+                }
+                
+                .icons {
+                    width: 40px;
+                    position: relative;
+                    left: 10px;
+                    top: -5px;
+                    float: left;
+                    
+                    //.iconItem { width: 34px; }
+                    .iconProvider {
+                        width: 20px;
+                        position: absolute;
+                        bottom: -5px;
+                        left: -10px;
+                    }
+                }
+                
+                .text {
+                    margin: 5px 0 0 60px;
+                    
+                    h2 {
+                        margin: 0px;
+                        padding-left: 0;
+                    }
+                }
+            }
+            
+            p {
+                clear: both;
+                margin: 10px 0 5px;
+            }
+        }
+    }
+}
