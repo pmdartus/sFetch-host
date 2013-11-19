@@ -1,0 +1,19 @@
+.searchBar.row
+    img(src='img/home.svg')
+    input(type='text', placeholder='Einstein', value='Einstein', ng-model='contact')
+    img(src='img/search.svg', ng-click='getTimeline()')
+
+h1(ng-show='loading') Loading
+.timeline(ng-hide='loading')
+  h3 This week
+  section.timeslice
+    .row.item(ng-repeat='item in items')
+      .headerItem
+        .icons
+          img.iconItem(src='img/jpg.png')
+          img.iconProvider(src='img/dropbox_icon.svg')
+        .text
+          h2(ng-bind-html-unsafe='item.datas.title')
+          h2.date {{item.date | niceDate}}
+        br(clear='both')
+      p.details(ng-bind-html-unsafe='item.datas.snippet')
