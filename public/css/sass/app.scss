@@ -126,11 +126,12 @@ body, html {
     margin-bottom: 0;
     font-weight: normal;
     background: white;
-    padding: 5px 0;
+    padding: 2px 0 2px 5px;
+    margin: 0;
     border-bottom: 1px solid darken($neutral-color, 20);
 
     .logo {
-        width: 40px; height: 40px;
+        width: 30px; height: 30px;
         position: relative;
         margin: 5px 10px;
     }
