@@ -1,6 +1,6 @@
 //Foundation override
-$secondary-color: rgb(63, 150, 69);
-$primary-color: rgb(122, 193, 67);
+$secondary-color: rgb(70, 121, 185);
+$primary-color: rgb(90, 146, 210);
 $neutral-color: #eee;
 //Personnal variables
 $header-height: 400;
@@ -110,7 +110,7 @@ body, html {
     
     //RESPONSIVE MINI SCREEN
     h2 { font-size: 1em; }
-    h3 { font-size: 0.8em; }
+    h3 { font-size: 0.9em; }
     h4 { font-size: 0.6em; }
     p { font-size: 0.8em; }
 }
@@ -118,77 +118,21 @@ body, html {
 
 
 //-------------------------------------------------------
-//              Search bar
+//              Name Timeline
 //-------------------------------------------------------
 
-.searchBar {
+.title {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    font-weight: normal;
     background: white;
-    padding-top: 10px;
-    
-    img {
-        width: 18px;
-        margin: 5px 5px 0;
-        
-        &:first-child {
-            margin-left: 10px;
-        }
-    }
-    
-    img, input { float: left; }
-    
-    input {
-        width: 75%;
-        border: none;
-    }
-}
+    padding: 5px 0;
+    border-bottom: 1px solid darken($neutral-color, 20);
 
-
-
-//-------------------------------------------------------
-//              header Contact
-//-------------------------------------------------------
-
-.headerContact {
-    background: $primary-color;
-    color: white;
-    padding: 10px 0 0;
-    
-    .contactBuble {
-        @include border-radius(40px);
-        width: 80px;
-        overflow: hidden;
-        border: 1px white solid;
-        float: left;
-        margin: 0 10px; 
-        
-        .image {
-            width: 80px; height: 80px;
-        }
-    }
-    
-    .line {
-        float: left;
-        h2 {
-            color: white;
-        }
-        
-        .desc {
-            background: white;
-            color: black;
-            padding: 5px 5px 0;
-        }
-        
-        .minor {
-            font-weight: 200 !important;
-        }
-        
-    }
-    
-    .actions {
-        background: rgba(255, 255, 255, 0.4);
-        text-align: center;
-        padding: 10px 0;
-        margin-top: 10px;
+    .logo {
+        width: 40px; height: 40px;
+        position: relative;
+        margin: 5px 10px;
     }
 }
 
@@ -198,23 +142,62 @@ body, html {
 //              Timeline
 //-------------------------------------------------------
 
+
+.wrapperTimeline {
+    position: relative;
+    padding-top: 15px;
+}
+
+.timelineBar {
+    position: absolute; top: 0; left: 5px;
+    height: 100%;
+    border-left: darken($neutral-color, 10) 3px solid;
+}
+
 .timeline {
-    padding: 10px;
     
     h3 {
         color: #333;
         text-shadow: 1px 1px white;
         font-weight: normal;
+        text-indent: 15px;
+        margin-bottom: 5px;
+        position: relative;
+        z-index: 10;
+
+        &:before { 
+            content:"";
+            position: absolute; left: 1px; top: 25px;
+            width:10px; height:10px;
+            border: 2px $neutral-color solid;
+            background: $primary-color;
+            @include border-radius(5px);
+
+        }
     }
     
     .timeslice {
         background: white;
-        padding: 0 10px 20px;
+        position: relative;
+        z-index: 5;
+        padding: 0 0 20px;
+        margin: 0 5px 20px 15px;
+
+        &:before { 
+            content:"";
+            position: absolute; left: -6px;
+            width:0; height:0;
+            border-top:8px solid transparent;
+            border-bottom:8px solid transparent;
+            border-right:6px solid white;
+        }
         
         .item {
-            border-bottom: 2px $primary-color solid;
-            margin-bottom: 10px;
-            padding: 15px 10px 0;
+            &:not(:last-child) { border-bottom: 1px $primary-color solid; }
+            margin-bottom: 0px;
+            display: block;
+            color: #333;
+            padding: 10px 20px 0;
             
             .details {
                 text-align: justify;
