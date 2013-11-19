@@ -1,14 +1,35 @@
-h1(ng-show='loading') Loading
-.timeline(ng-hide='loading')
-  h3 This week
-  section.timeslice
-    a(href='full/{{item.id}}').row.item(ng-repeat='item in items')
-      .headerItem
-        .icons
-          img.iconItem(src='img/type/{{item.actions.show | srcImg:"type"}}.svg')
-          img.iconProvider(src='img/provider/{{item.actions.show | srcImg:"provider"}}_icon.svg')
-        .text
-          h2(ng-bind-html-unsafe='item.datas.title')
-          h2.date {{item.date | niceDate}}
-        br(clear='both')
-      p.details(ng-bind-html-unsafe='item.datas.snippet')
+
+h1.title
+  img.logo(src="../img/logo.svg")
+  span Timeline
+
+.wrapperTimeline
+  .timelineBar
+
+  .loading(ng-show='loading')
+  .timeline(ng-hide='loading')
+    h3 This week
+    section.timeslice
+      a(href='full/{{item.id}}').row.item(ng-repeat='item in items')
+        .headerItem
+          .icons
+            img.iconItem(src='img/type/{{item.actions.show | srcImg:"type"}}.svg')
+            img.iconProvider(src='img/provider/{{item.actions.show | srcImg:"provider"}}_icon.svg')
+          .text
+            h2(ng-bind-html-unsafe='item.datas.title')
+            h2.date {{item.date | niceDate}}
+          br(clear='both')
+        p.details(ng-bind-html-unsafe='item.datas.snippet')
+  .timeline(ng-hide='loading')
+    h3 Last week
+    section.timeslice
+      a(href='full/{{item.id}}').row.item(ng-repeat='item in items')
+        .headerItem
+          .icons
+            img.iconItem(src='img/type/{{item.actions.show | srcImg:"type"}}.svg')
+            img.iconProvider(src='img/provider/{{item.actions.show | srcImg:"provider"}}_icon.svg')
+          .text
+            h2(ng-bind-html-unsafe='item.datas.title')
+            h2.date {{item.date | niceDate}}
+          br(clear='both')
+        p.details(ng-bind-html-unsafe='item.datas.snippet')
