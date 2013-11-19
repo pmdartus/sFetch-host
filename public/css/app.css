@@ -7273,7 +7273,7 @@ body p, html p {
 
 /* line 124, sass/app.scss */
 .title {
-  font-size: 1.2em;
+  font-size: 0.9em;
   margin-bottom: 0;
   font-weight: normal;
   background: white;
@@ -7286,7 +7286,7 @@ body p, html p {
   width: 30px;
   height: 30px;
   position: relative;
-  margin: 5px 10px;
+  margin: 5px 15px 5px 10px;
 }
 
 /* line 147, sass/app.scss */
