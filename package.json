@@ -6,12 +6,7 @@
       "start": "node server.js"
   },
   "dependencies": {
-      "express": "3.2.3"
-  },
-  "devDependencies": {
-      "grunt": "~0.4.1",
-      "grunt-contrib-uglify": "~0.2.0",
-      "grunt-contrib-cssmin": "~0.6.0",
-      "grunt-contrib-watch": "~0.4.0"
+      "express": "2.5.10",
+      "jade": ">= 0.0.1"
   }
 }
