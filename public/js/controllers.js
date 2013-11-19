@@ -16,7 +16,7 @@ angular.module('SalesFetchApp.controllers', []).
         // var queryUrl = "http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50'";
         var queryUrl = "/offline_einstein.json";
         //    $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('salesfetch@gmail.com' + ':' + 'Dreamforce2013');
-        $http({method: 'GET', url: 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50'})
+        $http({method: 'GET', url: queryUrl})
           .success(function(data, status, headers, config) {
             for (var i = 0; i < data.datas.length; i++) {
               var actItem = data.datas[i];
