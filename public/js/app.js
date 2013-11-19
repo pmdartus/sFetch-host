@@ -10,12 +10,12 @@ angular.module('SalesFetchApp', [
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
-    when('/', {
+    when('/timeline', {
       templateUrl: 'partials/timeline',
       controller: 'UsersCtrl'
     }).
     otherwise({
-      redirectTo: '/view1'
+      redirectTo: '/timeline'
     });
 
   $locationProvider.html5Mode(true);

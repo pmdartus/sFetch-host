@@ -1,14 +1,8 @@
-.searchBar.row
-  form(ng-submit='getTimeline()')
-      img(src='img/home.svg')
-      input(type='text', placeholder='Einstein', value='Einstein', ng-model='contact')
-      img(src='img/search.svg', ng-click='getTimeline()')
-
 h1(ng-show='loading') Loading
 .timeline(ng-hide='loading')
   h3 This week
   section.timeslice
-    .row.item(ng-repeat='item in items')
+    a(href='full/{{item.id}}').row.item(ng-repeat='item in items')
       .headerItem
         .icons
           img.iconItem(src='img/jpg.png')

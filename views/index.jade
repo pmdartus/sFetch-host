@@ -2,6 +2,12 @@ extends layout
 
 block body
   div(ng-controller='AppCtrl')
+    .searchBar.row
+      form(ng-submit='getTimeline()')
+          img(src='img/home.svg')
+          input(type='text', placeholder='Einstein', value='Einstein', ng-model='contact')
+          img(src='img/search.svg', ng-click='getTimeline()')
+                
     div(ng-view)
 
 
