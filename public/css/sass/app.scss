@@ -1,6 +1,7 @@
 //Foundation override
 $secondary-color: rgb(70, 121, 185);
 $primary-color: rgb(90, 146, 210);
+$anyfetch-color: rgb(63, 150, 69);
 $neutral-color: #eee;
 //Personnal variables
 $header-height: 400;
@@ -137,6 +138,72 @@ body, html {
     }
 }
 
+//-------------------------------------------------------
+//              Loading
+//-------------------------------------------------------
+
+.loading {
+
+    .buble {
+        position: absolute;
+        left: 0px;
+        top: 20px;
+        background: $anyfetch-color;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        border: 2px solid  darken($neutral-color, 10);
+
+        &:after {
+            content: '';
+            background: trasparent;
+            width: 150%;
+            height: 150%;
+            position: absolute;
+            border-radius: 100%;
+            top: -25%;
+            left: -25%;
+            opacity: 0.7;
+            box-shadow: lighten($anyfetch-color, 20) -7px -8px 5px -5px;
+            @include animation(rotate 1.2s infinite linear);
+        }
+    }
+
+    h3 {
+        color: #333;
+        text-shadow: 1px 1px white;
+        text-indent: 30px;
+        width: 100%;
+        color: #333;
+        font-weight: normal;
+        margin: 5px 0 0 0; padding: 0;
+
+        &:after {
+            content: '...';
+        }
+    }
+}
+
+@keyframes rotate {
+  0% {
+    @include transform(rotateZ(0deg));
+  }
+  100% {
+    @include transform(rotateZ(360deg));
+  }
+}
+
+@keyframes dots {
+    0% {
+        content: '...';
+    }
+    50% {
+        content: '..';
+    }
+    100% {
+        content: '.';
+    }
+}
 
 
 //-------------------------------------------------------
@@ -171,7 +238,7 @@ body, html {
             position: absolute; left: 1px; top: 25px;
             width:10px; height:10px;
             border: 2px $neutral-color solid;
-            background: $primary-color;
+            background: $anyfetch-color;
             @include border-radius(5px);
 
         }

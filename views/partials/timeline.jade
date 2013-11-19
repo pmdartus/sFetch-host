@@ -6,6 +6,9 @@ h1.title
   .timelineBar
 
   .loading(ng-show='loading')
+    .buble
+    h3 Loading timeline for {{contact}}
+    
   .timeline(ng-hide='loading')
     h3 This week
     section.timeslice
@@ -20,7 +23,7 @@ h1.title
           br(clear='both')
         p.details(ng-bind-html-unsafe='item.datas.snippet')
   .timeline(ng-hide='loading')
-    h3 Last week
+    h3 Last month
     section.timeslice
       a(href='full/{{item.id}}').row.item(ng-repeat='item in items')
         .headerItem
