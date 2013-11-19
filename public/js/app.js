@@ -11,7 +11,7 @@ angular.module('SalesFetchApp', [
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
     when('/', {
-      templateUrl: 'partials/partial1',
+      templateUrl: 'partials/timeline',
       controller: 'UsersCtrl'
     }).
     otherwise({
