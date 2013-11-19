@@ -12,7 +12,11 @@ config(function ($routeProvider, $locationProvider) {
   $routeProvider.
     when('/timeline', {
       templateUrl: 'partials/timeline',
-      controller: 'UsersCtrl'
+      controller: 'ContactCtrl'
+    }).
+    when('/documents/:docId', {
+      templateUrl: 'partials/document',
+      controller: 'DocumentCtrl'
     }).
     otherwise({
       redirectTo: '/timeline'
