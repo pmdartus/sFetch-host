@@ -12,20 +12,7 @@ h1.title
   .timeline(ng-hide='loading')
     h3 This week
     section.timeslice
-      a(href='full/{{item.id}}').row.item(ng-repeat='item in items')
-        .headerItem
-          .icons
-            img.iconItem(src='img/type/{{item.actions.show | srcImg:"type"}}.svg')
-            img.iconProvider(src='img/provider/{{item.actions.show | srcImg:"provider"}}_icon.svg')
-          .text
-            h2(ng-bind-html-unsafe='item.datas.title')
-            h2.date {{item.date | niceDate}}
-          br(clear='both')
-        p.details(ng-bind-html-unsafe='item.datas.snippet')
-  .timeline(ng-hide='loading')
-    h3 Last month
-    section.timeslice
-      a(href='full/{{item.id}}').row.item(ng-repeat='item in items')
+      a(href='full/{{item.id}}').row.item(ng-repeat="item in items | orderBy:'date':true")
         .headerItem
           .icons
             img.iconItem(src='img/type/{{item.actions.show | srcImg:"type"}}.svg')

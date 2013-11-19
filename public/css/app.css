@@ -7366,7 +7366,11 @@ body p, html p {
   border-left: #d4d4d4 3px solid;
 }
 
-/* line 213, sass/app.scss */
+/* line 211, sass/app.scss */
+.timeline {
+  padding-bottom: 10px;
+}
+/* line 214, sass/app.scss */
 .timeline h3 {
   color: #333;
   text-shadow: 1px 1px white;
@@ -7376,7 +7380,7 @@ body p, html p {
   position: relative;
   z-index: 10;
 }
-/* line 222, sass/app.scss */
+/* line 223, sass/app.scss */
 .timeline h3:before {
   content: "";
   position: absolute;
@@ -7390,15 +7394,15 @@ body p, html p {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 233, sass/app.scss */
+/* line 234, sass/app.scss */
 .timeline .timeslice {
   background: white;
   position: relative;
   z-index: 5;
   padding: 0 0 20px;
-  margin: 0 5px 20px 15px;
+  margin: 0 5px 0px 15px;
 }
-/* line 240, sass/app.scss */
+/* line 241, sass/app.scss */
 .timeline .timeslice:before {
   content: "";
   position: absolute;
@@ -7409,27 +7413,27 @@ body p, html p {
   border-bottom: 8px solid transparent;
   border-right: 6px solid white;
 }
-/* line 249, sass/app.scss */
+/* line 250, sass/app.scss */
 .timeline .timeslice .item {
   margin-bottom: 0px;
   display: block;
   color: #333;
   padding: 10px 20px 0;
 }
-/* line 250, sass/app.scss */
+/* line 251, sass/app.scss */
 .timeline .timeslice .item:not(:last-child) {
   border-bottom: 1px #5a92d2 solid;
 }
-/* line 256, sass/app.scss */
+/* line 257, sass/app.scss */
 .timeline .timeslice .item .details {
   text-align: justify;
 }
-/* line 261, sass/app.scss */
+/* line 262, sass/app.scss */
 .timeline .timeslice .item .headerItem .date {
   font-weight: normal;
   float: left;
 }
-/* line 268, sass/app.scss */
+/* line 269, sass/app.scss */
 .timeline .timeslice .item .headerItem .icons {
   width: 40px;
   position: relative;
@@ -7437,23 +7441,23 @@ body p, html p {
   top: -5px;
   float: left;
 }
-/* line 276, sass/app.scss */
+/* line 277, sass/app.scss */
 .timeline .timeslice .item .headerItem .icons .iconProvider {
   width: 20px;
   position: absolute;
   bottom: -5px;
   left: -10px;
 }
-/* line 284, sass/app.scss */
+/* line 285, sass/app.scss */
 .timeline .timeslice .item .headerItem .text {
   margin: 5px 0 0 60px;
 }
-/* line 287, sass/app.scss */
+/* line 288, sass/app.scss */
 .timeline .timeslice .item .headerItem .text h2 {
   margin: 0px;
   padding-left: 0;
 }
-/* line 294, sass/app.scss */
+/* line 295, sass/app.scss */
 .timeline .timeslice .item p {
   clear: both;
   margin: 10px 0 5px;

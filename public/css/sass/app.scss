@@ -209,7 +209,8 @@ body, html {
 }
 
 .timeline {
-    
+    padding-bottom: 10px;
+
     h3 {
         color: #333;
         text-shadow: 1px 1px white;
@@ -235,7 +236,7 @@ body, html {
         position: relative;
         z-index: 5;
         padding: 0 0 20px;
-        margin: 0 5px 20px 15px;
+        margin: 0 5px 0px 15px;
 
         &:before { 
             content:"";
