@@ -4,26 +4,17 @@
 
 angular.module('SalesFetchApp.controllers', []).
   controller('AppCtrl', function ($scope, $http) {
-    $http({
-      method: 'GET',
-      url: '/api/name'
-    }).
-    success(function (data, status, headers, config) {
-      $scope.name = data.name;
-    }).
-    error(function (data, status, headers, config) {
-      $scope.name = 'Error!'
-    });
 
   }).controller('UsersCtrl', function($scope, $http, $filter, Base64) {
         
+        console.log('Loading');
         $scope.Date = Date;
         $scope.loading = false;
         
         $scope.getTimeline = function() {
             $scope.loading = true;
             $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('salesfetch@gmail.com' + ':' + 'Dreamforce2013');
-        $http({method: 'GET', url: 'http://api.anyfetch.com/documents?search=Einstein&limit=50'})
+        $http({method: 'GET', url: 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50'})
             .success(function(data, status, headers, config) {
                 for (var i = 0; i < data.datas.length; i++) {
                     var actItem = data.datas[i];

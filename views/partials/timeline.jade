@@ -1,7 +1,8 @@
 .searchBar.row
-    img(src='img/home.svg')
-    input(type='text', placeholder='Einstein', value='Einstein', ng-model='contact')
-    img(src='img/search.svg', ng-click='getTimeline()')
+  form(ng-submit='getTimeline()')
+      img(src='img/home.svg')
+      input(type='text', placeholder='Einstein', value='Einstein', ng-model='contact')
+      img(src='img/search.svg', ng-click='getTimeline()')
 
 h1(ng-show='loading') Loading
 .timeline(ng-hide='loading')
