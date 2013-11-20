@@ -1,4 +1,4 @@
-ng-include(src="'partials/timelineHeader'")
+//- ng-include(src="'partials/timelineHeader'")
 
 .wrapFilters
   .filters(ng-class="{collapsed: !toggleFilter}")
@@ -11,6 +11,10 @@ ng-include(src="'partials/timelineHeader'")
         input(type="checkbox", id="documents", ng-model="filtersType['5252ce4ce4cfcd16f55cfa3c']")
         span.custom.checkbox
         |  Documents
+      label(for="exacttarget")
+        input(type="checkbox", id="exacttarget", ng-model="filtersType['5252ce4ce4cfcd16f55cfa43']")
+        span.custom.checkbox
+        |  ExactTarget
       label(for="images")
         input(type="checkbox", id="images", ng-model="filtersType['5252ce4ce4cfcd16f55cfa3d']")
         span.custom.checkbox

@@ -183,11 +183,16 @@ body, html {
     background: white;
     padding: 4px 0 2px 5px;
     margin: 0;
+    height: 45px;
+
+    span {
+        color: $secondary-color;
+    }
 
     .logo {
         width: 30px; height: 30px;
         position: relative;
-        margin: 2px 15px 5px 10px;
+        margin: 2px 6px 5px 10px;
     }
 }
 
@@ -203,7 +208,7 @@ body, html {
     .filters {
         background: white;
         padding: 0 10px;
-        height: 200px;
+        height: 240px;
         border-bottom: 1px solid darken($neutral-color, 20);
         position: relative;
         overflow: hidden;

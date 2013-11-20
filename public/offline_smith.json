@@ -259,6 +259,43 @@
                 "title": "Tips from company's update",
                 "snippet": " update and <span class=\"hlt-1\">John</span> <span class=\"hlt-1\">Smith</span> from BMI wanted a better integration\nwith salesforce."
             }
+        },
+        {
+            "_type": "Document",
+            "id": "528cb72a324530c805000001",
+            "creation_date": "2013-11-20T13:18:42.000Z",
+            "company": "528bb93203a470e9f8000001",
+            "semantic_document_type": "5252ce4ce4cfcd16f55cfa3c",
+            "binary_document_type": null,
+            "actions": {
+                "show": "https://na15.salesforce.com/002i0000006TImPAAW"
+            },
+            "related": [],
+            "document_url": "/documents/528cb72a324530c805000001",
+            "mode": "snippet",
+            "datas": {
+                "title": "Test for the timeline",
+                "snippet": "This note has been displayed after a click on the update button."
+            }
+        },
+        {
+            "_type": "Document",
+            "id": "528cf9cad62493944d000043",
+            "creation_date": "2013-11-19T15:56:00.000Z",
+            "company": "528bb93203a470e9f8000001",
+            "semantic_document_type": "5252ce4ce4cfcd16f55cfa43",
+            "binary_document_type": null,
+            "actions": {
+                "show": "https://members.exacttarget.com/Integration/EmailPreview.aspx?pid=ffcf14&mid=fe9c15737661077d71&eid=ff3a15707766"
+            },
+            "related": [],
+            "document_url": "/documents/528cf9cad62493944d000043",
+            "mode": "snippet",
+            "datas": {
+                "subject": "Test campaign",
+                "status": "Sent",
+                "campaign_name": "salesforce@gmail.com"
+            }
         }
     ],
     "next_page_url": "coming",

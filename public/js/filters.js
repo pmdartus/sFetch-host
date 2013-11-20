@@ -116,6 +116,29 @@ angular.module('SalesFetchApp.filters', []).
                     break;
 
                 //--------------------------------------------
+                //              Campain
+                case "5252ce4ce4cfcd16f55cfa43":
+                    switch(infoNeeded) {
+                        case "provider":
+                            return "exacttarget";
+                        case "type":
+                            if (item.datas.status.toLowerCase() == "open") {
+                                return "mail_open";
+                            } else if (item.datas.status.toLowerCase() == "delivred") {
+                                return "mail_delivred";
+                            } else if (item.datas.status.toLowerCase() == "sent") {
+                                return "mail_sent";
+                            } else {
+                                return "mail";
+                            }
+                        case "title":
+                            return "[" + item.datas.status + "] " + item.datas.campaign_name;
+                        case "snippet":
+                            return item.datas.subject;
+                    }
+                    break;
+
+                //--------------------------------------------
                 //              Image
                 case "5252ce4ce4cfcd16f55cfa3d":
                     switch(infoNeeded) {
