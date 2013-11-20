@@ -15,7 +15,9 @@
 			span(style="display: inline-block; text-indent:31px") Updating...
 
 		.providers
-			h2 Providers
+			h2.left Providers
+			h2.right
+				a(href="http://anyfetch.com/providers", target="_blank")+ Add
 			ul
 				li(ng-repeat="provider in providers")
 					{{provider.name}}

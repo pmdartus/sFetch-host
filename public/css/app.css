@@ -7306,28 +7306,33 @@ body p, html p {
   margin: 0 20px 10px;
 }
 /* line 152, sass/app.scss */
-.wrapperUser .actions h2, .wrapperUser .actions h3, .wrapperUser .actions li {
+.wrapperUser .actions h2, .wrapperUser .actions h3, .wrapperUser .actions li, .wrapperUser .actions h2 a {
   color: white;
 }
-/* line 154, sass/app.scss */
+/* line 153, sass/app.scss */
+.wrapperUser .actions h2 a:hover {
+  color: #ddd;
+}
+/* line 155, sass/app.scss */
 .wrapperUser .actions .lastUpdate {
   font-weight: normal;
 }
-/* line 158, sass/app.scss */
+/* line 159, sass/app.scss */
 .wrapperUser .actions .providers {
   clear: both;
   padding: 5px 20px;
 }
-/* line 162, sass/app.scss */
+/* line 163, sass/app.scss */
 .wrapperUser .actions .providers ul {
   list-style-position: inside;
+  clear: both;
 }
-/* line 166, sass/app.scss */
+/* line 168, sass/app.scss */
 .wrapperUser .actions .providers li {
   text-indent: 20px;
 }
 
-/* line 177, sass/app.scss */
+/* line 179, sass/app.scss */
 .title {
   font-size: 0.9em;
   margin-bottom: 0;
@@ -7336,7 +7341,7 @@ body p, html p {
   padding: 4px 0 2px 5px;
   margin: 0;
 }
-/* line 185, sass/app.scss */
+/* line 187, sass/app.scss */
 .title .logo {
   width: 30px;
   height: 30px;
@@ -7344,13 +7349,13 @@ body p, html p {
   margin: 2px 15px 5px 10px;
 }
 
-/* line 196, sass/app.scss */
+/* line 198, sass/app.scss */
 .wrapFilters {
   position: relative;
   padding-bottom: 20px;
   z-index: 99;
 }
-/* line 201, sass/app.scss */
+/* line 203, sass/app.scss */
 .wrapFilters .filters {
   background: white;
   padding: 0 10px;
@@ -7367,29 +7372,29 @@ body p, html p {
   -o-transition-duration: 0.6s;
   transition-duration: 0.6s;
 }
-/* line 211, sass/app.scss */
+/* line 213, sass/app.scss */
 .wrapFilters .filters.collapsed {
   height: 0px;
 }
-/* line 213, sass/app.scss */
+/* line 215, sass/app.scss */
 .wrapFilters .filters .custom {
   clear: both;
 }
-/* line 214, sass/app.scss */
+/* line 216, sass/app.scss */
 .wrapFilters .filters h3, .wrapFilters .filters a {
   float: left;
 }
-/* line 215, sass/app.scss */
+/* line 217, sass/app.scss */
 .wrapFilters .filters a {
   padding-left: 10px;
   font-size: 0.8em;
   margin-top: 5px;
 }
-/* line 221, sass/app.scss */
+/* line 223, sass/app.scss */
 .wrapFilters .filters input {
   margin: 5px 0;
 }
-/* line 226, sass/app.scss */
+/* line 228, sass/app.scss */
 .wrapFilters .tongue {
   background: white;
   position: absolute;
@@ -7408,7 +7413,7 @@ body p, html p {
   border-bottom-right-radius: 7px;
   cursor: pointer;
 }
-/* line 239, sass/app.scss */
+/* line 241, sass/app.scss */
 .wrapFilters .tongue:before {
   content: "";
   position: absolute;
@@ -7421,11 +7426,11 @@ body p, html p {
   border-top: 8px solid #888888;
 }
 
-/* line 256, sass/app.scss */
+/* line 258, sass/app.scss */
 .loading.tl {
   margin: 10px 0 0 -3px;
 }
-/* line 258, sass/app.scss */
+/* line 260, sass/app.scss */
 .loading .buble {
   position: absolute;
   width: 20px;
@@ -7434,7 +7439,7 @@ body p, html p {
   border-radius: 100%;
   border: 3px solid #eeeeee;
 }
-/* line 266, sass/app.scss */
+/* line 268, sass/app.scss */
 .loading .buble:after {
   content: '';
   background: trasparent;
@@ -7451,26 +7456,26 @@ body p, html p {
   -o-animation: rotate 0.9s infinite linear;
   animation: rotate 0.9s infinite linear;
 }
-/* line 280, sass/app.scss */
+/* line 282, sass/app.scss */
 .loading .buble.user {
   left: 50%;
   bottom: 100px;
 }
-/* line 284, sass/app.scss */
+/* line 286, sass/app.scss */
 .loading .buble.user:after {
   box-shadow: #fff -9px -10px 7px -5px;
 }
-/* line 288, sass/app.scss */
+/* line 290, sass/app.scss */
 .loading .buble.document {
   left: 50%;
   top: 100px;
 }
-/* line 292, sass/app.scss */
+/* line 294, sass/app.scss */
 .loading .buble.tl {
   left: -3px;
   top: 15px;
 }
-/* line 298, sass/app.scss */
+/* line 300, sass/app.scss */
 .loading h3 {
   color: #333;
   text-shadow: 1px 1px white;
@@ -7485,7 +7490,7 @@ body p, html p {
 }
 
 @keyframes rotate {
-  /* line 312, sass/app.scss */
+  /* line 314, sass/app.scss */
   0% {
     -webkit-transform: rotateZ(0deg);
     -moz-transform: rotateZ(0deg);
@@ -7494,7 +7499,7 @@ body p, html p {
     transform: rotateZ(0deg);
   }
 
-  /* line 315, sass/app.scss */
+  /* line 317, sass/app.scss */
   100% {
     -webkit-transform: rotateZ(360deg);
     -moz-transform: rotateZ(360deg);
@@ -7504,13 +7509,13 @@ body p, html p {
   }
 }
 
-/* line 325, sass/app.scss */
+/* line 327, sass/app.scss */
 .wrapperLoading {
   padding-top: 10px;
   position: relative;
   bottom: 52px;
 }
-/* line 330, sass/app.scss */
+/* line 332, sass/app.scss */
 .wrapperLoading a {
   color: black;
   display: block;
@@ -7518,13 +7523,13 @@ body p, html p {
   height: 40px;
   padding-top: 10px;
 }
-/* line 337, sass/app.scss */
+/* line 339, sass/app.scss */
 .wrapperLoading a img {
   height: 20px;
   margin-left: 5px;
 }
 
-/* line 344, sass/app.scss */
+/* line 346, sass/app.scss */
 .wrapper {
   font-size: 0.5em;
   position: relative;
@@ -7534,19 +7539,19 @@ body p, html p {
   height: 100%;
 }
 
-/* line 358, sass/app.scss */
+/* line 360, sass/app.scss */
 .wrapperTimeline {
   position: relative;
 }
 
-/* line 362, sass/app.scss */
+/* line 364, sass/app.scss */
 .wrapperTimeline {
   margin-top: -20px;
   z-index: 20;
   padding-top: 10px;
 }
 
-/* line 368, sass/app.scss */
+/* line 370, sass/app.scss */
 .timelineBar {
   position: absolute;
   top: 0;
@@ -7556,11 +7561,11 @@ body p, html p {
   border-left: #d4d4d4 3px solid;
 }
 
-/* line 374, sass/app.scss */
+/* line 376, sass/app.scss */
 .timeline {
   padding-bottom: 15px;
 }
-/* line 377, sass/app.scss */
+/* line 379, sass/app.scss */
 .timeline h3 {
   color: #333;
   text-shadow: 1px 1px white;
@@ -7570,7 +7575,7 @@ body p, html p {
   position: relative;
   z-index: 10;
 }
-/* line 386, sass/app.scss */
+/* line 388, sass/app.scss */
 .timeline h3:before {
   content: "";
   position: absolute;
@@ -7584,7 +7589,7 @@ body p, html p {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 397, sass/app.scss */
+/* line 399, sass/app.scss */
 .timeline .timeslice {
   background: white;
   position: relative;
@@ -7592,7 +7597,7 @@ body p, html p {
   padding: 0 0 20px;
   margin: 0 5px 0px 15px;
 }
-/* line 404, sass/app.scss */
+/* line 406, sass/app.scss */
 .timeline .timeslice:before {
   content: "";
   position: absolute;
@@ -7603,27 +7608,27 @@ body p, html p {
   border-bottom: 8px solid transparent;
   border-right: 6px solid white;
 }
-/* line 413, sass/app.scss */
+/* line 415, sass/app.scss */
 .timeline .timeslice .item {
   margin-bottom: 0px;
   display: block;
   color: #333;
   padding: 10px 20px 0;
 }
-/* line 414, sass/app.scss */
+/* line 416, sass/app.scss */
 .timeline .timeslice .item:not(:last-child) {
   border-bottom: 1px #5a92d2 solid;
 }
-/* line 420, sass/app.scss */
+/* line 422, sass/app.scss */
 .timeline .timeslice .item .details {
   text-align: justify;
 }
-/* line 425, sass/app.scss */
+/* line 427, sass/app.scss */
 .timeline .timeslice .item .headerItem .date {
   font-weight: normal;
   float: left;
 }
-/* line 432, sass/app.scss */
+/* line 434, sass/app.scss */
 .timeline .timeslice .item .headerItem .icons {
   width: 40px;
   position: relative;
@@ -7631,24 +7636,24 @@ body p, html p {
   top: -5px;
   float: left;
 }
-/* line 440, sass/app.scss */
+/* line 442, sass/app.scss */
 .timeline .timeslice .item .headerItem .icons .iconProvider {
   width: 20px;
   position: absolute;
   bottom: -5px;
   left: -10px;
 }
-/* line 448, sass/app.scss */
+/* line 450, sass/app.scss */
 .timeline .timeslice .item .headerItem .text {
   margin: 5px 0 0 50px;
 }
-/* line 451, sass/app.scss */
+/* line 453, sass/app.scss */
 .timeline .timeslice .item .headerItem .text h2 {
   margin: 0px;
   font-size: 0.9em;
   padding-left: 0;
 }
-/* line 459, sass/app.scss */
+/* line 461, sass/app.scss */
 .timeline .timeslice .item p {
   clear: both;
   margin: 10px 0 5px;

@@ -149,7 +149,8 @@ body, html {
             margin: 0 20px 10px;
         }
 
-        h2, h3, li { color: white; }
+        h2, h3, li, h2 a { color: white; }
+        h2 a:hover { color: #ddd; }
 
         .lastUpdate {
             font-weight: normal;
@@ -161,6 +162,7 @@ body, html {
             
             ul {
                 list-style-position:inside;
+                clear: both;
             }
 
             li {

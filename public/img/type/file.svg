@@ -19,7 +19,12 @@
 		c59.764,0.013,119.527,0.035,179.29,0.03c8.412-0.001,11.71-3.491,11.717-12.483c0.031-40.286-0.01-80.572,0.026-120.858
 		C199.06,109.053,199.174,84.418,199.246,59.783z"/>
 </g>
-<text transform="matrix(1 0 0 1 14.9923 89.9459)" fill="#FFFFFF" font-family="'MyriadPro-Semibold'" font-size="50">FILE</text>
+<g>
+	<path fill="#FFFFFF" d="M18.543,56.244h19.451v5.05H24.693v9.301h12.401v5.05H24.693v14.301h-6.15V56.244z"/>
+	<path fill="#FFFFFF" d="M50.142,56.244v33.702h-6.15V56.244H50.142z"/>
+	<path fill="#FFFFFF" d="M57.192,56.244h6.15v28.552h13.851v5.15H57.192V56.244z"/>
+	<path fill="#FFFFFF" d="M100.692,74.995h-12.7v9.9h14.201v5.05H81.841V56.244h19.602v5.05H87.991v8.701h12.7V74.995z"/>
+</g>
 <line fill="none" stroke="#FFFFFF" stroke-width="10" stroke-miterlimit="10" x1="17.509" y1="133.515" x2="178.19" y2="133.515"/>
 <line fill="none" stroke="#FFFFFF" stroke-width="10" stroke-miterlimit="10" x1="17.509" y1="163.515" x2="178.19" y2="163.515"/>
 <line fill="none" stroke="#FFFFFF" stroke-width="10" stroke-miterlimit="10" x1="17.509" y1="193.515" x2="178.19" y2="193.515"/>
