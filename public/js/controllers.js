@@ -109,10 +109,10 @@ angular.module('SalesFetchApp.controllers', [])
         $http({method: 'GET', url: 'http://api.anyfetch.com/'})
           .success(function(data, status, headers, config) {
             console.log(data);
-            var providers = data.provider_status;
+            $scope.providers = data.provider_status;
 
-            for(var i=0; i < providers.length; i++) {
-              var actUpdate = new Date(providers[i].updated);
+            for(var i=0; i < $scope.providers.length; i++) {
+              var actUpdate = new Date($scope.providers[i].updated);
 
               if (actUpdate > $scope.lastUpdate) {
                 $scope.lastUpdate = actUpdate;

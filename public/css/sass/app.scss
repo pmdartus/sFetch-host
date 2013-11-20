@@ -149,9 +149,23 @@ body, html {
             margin: 0 20px 10px;
         }
 
+        h2, h3, li { color: white; }
+
         .lastUpdate {
-            color: white;
             font-weight: normal;
+        }
+
+        .providers {
+            clear: both;
+            padding: 5px 20px;
+            
+            ul {
+                list-style-position:inside;
+            }
+
+            li {
+                text-indent: 20px;
+            }
         }
     }
 }

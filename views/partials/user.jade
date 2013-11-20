@@ -13,3 +13,9 @@
 			.loading
 				.buble.update
 			span(style="display: inline-block; text-indent:31px") Updating...
+
+		.providers
+			h2 Providers
+			ul
+				li(ng-repeat="provider in providers")
+					{{provider.name}}
