@@ -32,7 +32,7 @@ var dateFilter = function (date, plus) {
         case 12: month = 'December';
             break;
         }
-        var time = (plus) ? (" at "+ (date.getHours() < 10) ? "0" : "" + date.getHours() + ":" + (date.getMinutes() < 10) ? "0" : "" + date.getMinutes() ) : "";
+        var time = (plus) ? (" at "+ date.getHours() + ":" + date.getMinutes() ) : "";
 
         return month + ', ' + date.getDate() + time;
     }
