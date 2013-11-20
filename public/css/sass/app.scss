@@ -253,6 +253,7 @@ body, html {
 //-------------------------------------------------------
 
 .loading {
+    &.tl { margin: 10px 0 0 -3px; }
 
     .buble {
         position: absolute;
@@ -272,7 +273,7 @@ body, html {
             top: -0%;
             left: -0%;
             opacity: 0.7;
-            box-shadow: darken($anyfetch-color, 20) -7px -8px 10px -5px;
+            box-shadow: 11px 4px 30px 4px lighten($anyfetch-color, 20);
             @include animation(rotate 0.9s infinite linear);
         }
 
@@ -361,11 +362,12 @@ body, html {
 .wrapperTimeline {
     top: -20px;
     z-index: 20;
+    padding-top: 10px;
 }
 
 .timelineBar {
     position: absolute; top: 0; left: 5px;
-    height: 100%;
+    min-height: 20px;
     border-left: darken($neutral-color, 10) 3px solid;
 }
 
