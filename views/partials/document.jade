@@ -1,2 +1,9 @@
+ng-include(src="'partials/timelineHeader'")
+
+.wrapperLoading
+	a(ng-click="backTimeline()").back < Back
+	.loading(ng-show='loading')
+		.buble.document
+
 div
-  ng-include(src='templateUrl')
+	ng-include(src='templateUrl')

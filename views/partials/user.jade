@@ -1,0 +1,11 @@
+.wrapperUser
+	img.logo(src="img/logo_full.svg")
+
+	.loading(ng-show='loading')
+		.buble.user
+
+	.actions(ng-show="!loading")
+		button.button.alert Update
+		h3.lastUpdate Last update:
+			br
+			strong {{ lastUpdate | niceDate:true }}

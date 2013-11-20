@@ -1,3 +1,5 @@
+ng-include(src="'partials/timelineHeader'")
+
 .wrapFilters
   .filters(ng-class="{collapsed: !toggleFilter}")
     h3 Filters
@@ -29,7 +31,7 @@
 .wrapperTimeline
   .timelineBar
 
-  .loading(ng-show='loading')
+  .loading.tl(ng-show='loading')
     .buble
     h3 Loading timeline for {{contact}}
     

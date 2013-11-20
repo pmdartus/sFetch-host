@@ -23,8 +23,8 @@ angular.module('SalesFetchApp.controllers', [])
         
         $scope.loading = true;
         // DEBUG
-        // var timelineUrl = "/offline_smith.json";
-        var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
+        var timelineUrl = "/offline_smith.json";
+        // var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
 
 
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');
@@ -102,22 +102,22 @@ angular.module('SalesFetchApp.controllers', [])
     //-------------------------------------------------------------------------
 
     .controller('UserCtrl', function($scope, $http, $filter, $routeParams, $location, Base64) {
-      // Retrieve the document
+      // Retrieve the user
       $scope.getUser = function() {
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');
         $http({method: 'GET', url: 'http://api.anyfetch.com/'})
           .success(function(data, status, headers, config) {
             console.log(data);
-            $scope.userData = data;
+            $scope.lastUpdate = new Date(data.provider_status[0].updated);
+            $scope.loading = false;
           })
           .error(function(data) {
               console.log('Error', data);
           });
       };
 
-      $scope.document = $routeParams.docId;
       $scope.loading = true;
-      $scope.getDocument();
+      $scope.getUser();
     })
 
 
@@ -136,10 +136,17 @@ angular.module('SalesFetchApp.controllers', [])
             $scope.docType = data.semantic_document_type || data.binary_document_type;
             $scope.templateUrl = 'partials/doctype-' + $scope.docType;
             $scope.metadatas = data.datas[$scope.docType];
+            $scope.loading = false;
           })
           .error(function(data) {
               console.log('Error', data);
           });
+      };
+
+      $scope.backTimeline = function()  
+      {
+        console.log('Back to info');
+        $location.path('/timeline');
       };
 
       $scope.document = $routeParams.docId;
