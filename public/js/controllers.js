@@ -13,22 +13,34 @@ angular.module('SalesFetchApp.controllers', []).
         $scope.Date = Date;
         
         $scope.loading = true;
-        var queryUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
+        //var queryUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
         // DEBUG
-        // var queryUrl = "/offline_einstein.json";
+        var queryUrl = "/offline_smith.json";
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('salesfetch@gmail.com' + ':' + 'Dreamforce2013');
         $http({method: 'GET', url: queryUrl})
           .success(function(data, status, headers, config) {
+            //Init new arrays
+            $scope.itemsThisWeek = new Array();
+            $scope.itemsLastWeek = new Array();
+
+            //Get date limit
+            var now = new Date();
+            $scope.lastWeek = new Date();
+            $scope.lastWeek.setDate(now.getDate()-now.getDay());
+
             for (var i = 0; i < data.datas.length; i++) {
-              var actItem = data.datas[i];
-              actItem.date = new Date(actItem.creation_date);
-              
-              if (actItem.semantic_document_type == '5252ce4ce4cfcd16f55cfa3a') {
-                console.log('Getting rid of contact');
-                data.datas.splice(i, 1);
-                i--;
-              }
-          }
+                var actItem = data.datas[i];
+                actItem.date = new Date(actItem.creation_date);
+
+                // This week
+                if (actItem.date >= $scope.lastWeek) {
+                    $scope.itemThisWeek.push(actItem);
+                }
+                // After this week
+                else {
+                    $scope.itemsLastWeek.push(actItem);
+                }
+            }
           
             console.log(data.datas);
             $scope.items = data.datas;

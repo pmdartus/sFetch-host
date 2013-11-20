@@ -43,7 +43,6 @@ angular.module('SalesFetchApp.filters', []).
             //Regex provider
             var regex = /https?\:\/\/\D{0,4}\.?(.*)\.\D{1,4}\/.*\.(\D*)$/;
             var infos = regex.exec(url);
-            console.info(infoNeeded);
 
             switch(infoNeeded) {
             case "provider":
