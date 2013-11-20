@@ -5,6 +5,10 @@
 angular.module('SalesFetchApp.controllers', []).
   controller('AppCtrl', function ($scope, $http) {
   }).controller('ContactCtrl', function($scope, $http, $filter, $routeParams, $location, Base64) {
+      // $scope.toggleFilter = false;
+      $scope.filtersType = new Object();
+      $scope.Object = Object;
+      console.info($scope.Object.keys($scope.filtersType).length);
 
       // Retrieve the timeline elments
       $scope.getTimeline = function() {

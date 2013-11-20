@@ -1,3 +1,30 @@
+.wrapFilters
+  .filters(ng-class="{collapsed: !toggleFilter}")
+    h3 Filters
+    a(ng-show="Object.keys(filtersType).length", ng-click="filtersType = {}") Reset
+
+    .custom
+      label(for="documents")
+        input(type="checkbox", id="documents", ng-model="filtersType['5252ce4ce4cfcd16f55cfa3c']")
+        span.custom.checkbox
+        |  Documents
+      label(for="images")
+        input(type="checkbox", id="images", ng-model="filtersType['5252ce4ce4cfcd16f55cfa3d']")
+        span.custom.checkbox
+        |  Images
+      label(for="events")
+        input(type="checkbox", id="events", ng-model="filtersType['5252ce4ce4cfcd16f55cfa40']")
+        span.custom.checkbox
+        |  Events
+      label(for="tasks")
+        input(type="checkbox", id="tasks", ng-model="filtersType['5252ce4ce4cfcd16f55cfa41']")
+        span.custom.checkbox
+        |  Tasks
+      label(for="file")
+        input(type="checkbox", id="file", ng-model="filtersType['5252ce4ce4cfcd16f55cfa3b']")
+        span.custom.checkbox
+        |  File
+  .tongue(ng-click="toggleFilter = !toggleFilter")
 .wrapperTimeline
   .timelineBar
 
@@ -9,7 +36,7 @@
 
     h3(ng-show='itemThisWeek.length')  This Week
     section.timeslice(ng-show='itemThisWeek.length')
-      a(href='full/{{item.id}}').row.item(ng-repeat="item in itemThisWeek | orderBy:'date':true")
+      a(href='full/{{item.id}}').row.item(ng-repeat="item in itemThisWeek | orderBy:'date':true", ng-show="filtersType[item.binary_document_type] || filtersType[item.semantic_document_type] || !Object.keys(filtersType).length")
         .headerItem
           .icons
             img.iconItem(src='img/type/{{item | infoItem:"type"}}.svg')
@@ -20,15 +47,15 @@
           br(clear='both')
         p.details(ng-bind-html-unsafe='item.snippet')
 
-    h3(ng-show='itemsLastWeek.length')  Before {{lastWeek | niceDate:false}}
-    section.timeslice(ng-show='itemsLastWeek.length')
-      a(href='full/{{item.id}}').row.item(ng-repeat="item in itemsLastWeek | orderBy:'date':true")
-        .headerItem
-          .icons
-            img.iconItem(src='img/type/{{item | infoItem:"type"}}.svg')
-            img.iconProvider(src='img/provider/{{item | infoItem:"provider"}}_icon.svg')
-          .text
-            h2(ng-bind-html-unsafe='item.title')
-            h2.date {{item.date | niceDate:false}}
-          br(clear='both')
-        p.details(ng-bind-html-unsafe='item.snippet')
+    //- h3(ng-show='itemsLastWeek.length')  Before {{lastWeek | niceDate:false}}
+    //- section.timeslice(ng-show='itemsLastWeek.length')
+    //-   a(href='full/{{item.id}}').row.item(ng-repeat="item in itemsLastWeek | orderBy:'date':true")
+    //-     .headerItem
+    //-       .icons
+    //-         img.iconItem(src='img/type/{{item | infoItem:"type"}}.svg')
+    //-         img.iconProvider(src='img/provider/{{item | infoItem:"provider"}}_icon.svg')
+    //-       .text
+    //-         h2(ng-bind-html-unsafe='item.title')
+    //-         h2.date {{item.date | niceDate:false}}
+    //-       br(clear='both')
+    //-     p.details(ng-bind-html-unsafe='item.snippet')

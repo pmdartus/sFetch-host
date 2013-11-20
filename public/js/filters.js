@@ -42,6 +42,15 @@ angular.module('SalesFetchApp.filters', []).
     filter('niceDate', function() {
         return dateFilter;
     }).
+    filter('filtersType', function() {
+        return function (item, $scope) {
+            if (item) {
+                console.log($scope.filtersType, item);
+            }
+
+            return item;
+        };
+    }).
     filter('infoItem', function() {
         return function (item, infoNeeded) {
             //Regex

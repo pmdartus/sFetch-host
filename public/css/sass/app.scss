@@ -129,12 +129,68 @@ body, html {
     background: white;
     padding: 2px 0 2px 5px;
     margin: 0;
-    border-bottom: 1px solid darken($neutral-color, 20);
 
     .logo {
         width: 30px; height: 30px;
         position: relative;
         margin: 5px 15px 5px 10px;
+    }
+}
+
+//-------------------------------------------------------
+//              Filters
+//-------------------------------------------------------
+
+.wrapFilters {
+    position: relative;
+    padding-bottom: 20px;
+    z-index: 99;
+
+    .filters {
+        background: white;
+        padding: 0 10px;
+        height: 125px;
+        border-bottom: 1px solid darken($neutral-color, 20);
+        position: relative;
+        overflow: hidden;
+        @include transition-property(height);
+        @include transition-duration(0.6s);
+
+        &.collapsed { height: 0px; }
+        
+        .custom { clear: both; }
+        h3, a { float: left; }
+        a {
+            padding-left: 10px;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        input { margin: 0; }
+    }
+    
+    .tongue {
+        background: white;
+        position: absolute;
+        width: 40px; height: 20px;
+        bottom: 2px; right: 15px;
+        border-left: 1px solid darken($neutral-color, 20);
+        border-right: 1px solid darken($neutral-color, 20);
+        border-bottom: 1px solid darken($neutral-color, 20);
+        @include border-bottom-left-radius(7px);
+        @include border-bottom-right-radius(7px);
+
+        cursor: pointer;
+
+        &:before { 
+            content:"";
+            position: absolute;
+            left: 12px; top: 4px;
+            width:0; height:0;
+            border-right:8px solid transparent;
+            border-left:8px solid transparent;
+            border-top:8px solid darken($neutral-color, 40);
+        }
     }
 }
 
@@ -199,7 +255,9 @@ body, html {
 
 .wrapperTimeline {
     position: relative;
-    padding-top: 15px;
+    padding-top: 10px;
+    top: -20px;
+    z-index: 20;
 }
 
 .timelineBar {

@@ -1,5 +1,9 @@
 'use strict';
 
+$(function(){ 
+    $(document).foundation();
+ });
+
 // Declare app level module which depends on filters, and services
 
 angular.module('SalesFetchApp', [
