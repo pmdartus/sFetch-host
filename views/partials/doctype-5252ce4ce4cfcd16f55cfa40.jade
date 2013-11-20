@@ -1,6 +1,8 @@
 //Event
 article
-    section
-        h1 {{metadatas.name}}
-        p {{metadatas.startDate}} - {{metadatas.endDate}}
-      p {{metadatas.description}}
+	section
+		h1 {{metadatas.name}}
+		hr
+		p {{metadatas.dateStart}} - {{metadatas.dateEnd | niceDate:true}}
+		hr
+		p {{metadatas.description}}
