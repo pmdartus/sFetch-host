@@ -13,10 +13,10 @@ angular.module('SalesFetchApp.controllers', []).
         $scope.Date = Date;
         
         $scope.loading = true;
-        // var queryUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
+        var queryUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
         // DEBUG
-        var queryUrl = "/offline_einstein.json";
-        $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('salesfetch@gmail.com' + ':' + 'Dreamforce2013');
+        // var queryUrl = "/offline_einstein.json";
+        $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');
         $http({method: 'GET', url: queryUrl})
           .success(function(data, status, headers, config) {
             for (var i = 0; i < data.datas.length; i++) {
@@ -53,11 +53,14 @@ angular.module('SalesFetchApp.controllers', []).
     }).controller('DocumentCtrl', function($scope, $http, $filter, $routeParams, $location, Base64) {
       // Retrieve the document
       $scope.getDocument = function() {
-        $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('salesfetch@gmail.com' + ':' + 'Dreamforce2013');
+        $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');
         $http({method: 'GET', url: 'http://api.anyfetch.com/documents/'+$scope.document})
           .success(function(data, status, headers, config) {
             console.log(data);
             $scope.document = data;
+            $scope.docType = data.semantic_document_type || data.binary_document_type;
+            $scope.templateUrl = 'partials/doctype-' + $scope.docType;
+            $scope.metadatas = data.datas[$scope.docType];
           })
           .error(function(data) {
               console.log('Error', data);
