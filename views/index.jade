@@ -1,7 +1,11 @@
 extends layout
 
 block body
-  div(ng-controller='AppCtrl')      
+  div(ng-controller='AppCtrl')   
+    h1.title
+      img.logo(src="../img/logo.svg")
+      span Timeline
+   
     div(ng-view)
 
 
