@@ -90,6 +90,7 @@ angular.module('SalesFetchApp.controllers', [])
 
       // Init the view
       $scope.contact = $routeParams.name;
+      $scope.sfID = $routeParams.ui;
       $scope.Date = Date;
       $scope.loading = true;
       $scope.getTimeline();
@@ -108,7 +109,22 @@ angular.module('SalesFetchApp.controllers', [])
         $http({method: 'GET', url: 'http://api.anyfetch.com/'})
           .success(function(data, status, headers, config) {
             console.log(data);
-            $scope.lastUpdate = new Date(data.provider_status[0].updated);
+            var providers = data.provider_status;
+
+            for(var i=0; i < providers.length; i++) {
+              var actUpdate = new Date(providers[i].updated);
+
+              if (actUpdate > $scope.lastUpdate) {
+                $scope.lastUpdate = actUpdate;
+              }
+            }
+
+            var now = new Date();
+            var deltaNow = Math.floor((now  - $scope.lastUpdate)/60000);
+            if (deltaNow > 10) {
+              $scope.canUpdate = true;
+            }
+
             $scope.loading = false;
           })
           .error(function(data) {
@@ -116,6 +132,26 @@ angular.module('SalesFetchApp.controllers', [])
           });
       };
 
+      // Update the db
+      $scope.update = function() {
+        if ($scope.canUpdate) {
+          $scope.canUpdate = false;
+
+          $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');
+          $http({method: 'POST', url: 'http://api.anyfetch.com/update'})
+            .success(function(data, status, headers, config) {
+              console.log(data, status);
+            })
+            .error(function(data) {
+                console.log('Error', data);
+            });
+          };
+      };
+
+      //Init the view
+      $scope.sfID = $routeParams.ui;
+      $scope.canUpdate = false;
+      $scope.lastUpdate = new Date(3600*24*1000); //Jan02_1970
       $scope.loading = true;
       $scope.getUser();
     })

@@ -5,7 +5,11 @@
 		.buble.user
 
 	.actions(ng-show="!loading")
-		button.button.alert Update
-		h3.lastUpdate Last update:
+		button.button(ng-click="update()", ng-class="{disabled: !canUpdate, secondary: !canUpdate, alert: canUpdate}") Update
+		h3.lastUpdate(ng-show="canUpdate") Last update:
 			br
 			strong {{ lastUpdate | niceDate:true }}
+		h3.lastUpdate(ng-hide="canUpdate", style="margin-top: 12px;")
+			.loading
+				.buble.update
+			span(style="display: inline-block; text-indent:31px") Updating...
