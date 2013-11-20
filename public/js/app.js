@@ -6,7 +6,7 @@ angular.module('SalesFetchApp', [
   'SalesFetchApp.controllers',
   'SalesFetchApp.filters',
   'SalesFetchApp.services',
-  'SalesFetchApp.directives'
+  'SalesFetchApp.components'
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.

@@ -13,11 +13,15 @@ angular.module('SalesFetchApp.controllers', []).
         $scope.Date = Date;
         
         $scope.loading = true;
-        //var queryUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
         // DEBUG
-        var queryUrl = "/offline_smith.json";
+        var timelineUrl = "/offline_smith.json";
+        //var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
+        var documentTypesUrl = "/root.json";
+        //var documentTypesUrl = 'http://api.anyfetch.com/';
+
+
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('salesfetch@gmail.com' + ':' + 'Dreamforce2013');
-        $http({method: 'GET', url: queryUrl})
+        $http({method: 'GET', url: timelineUrl})
           .success(function(data, status, headers, config) {
             //Init new arrays
             $scope.itemsThisWeek = new Array();
@@ -32,6 +36,10 @@ angular.module('SalesFetchApp.controllers', []).
                 var actItem = data.datas[i];
                 actItem.date = new Date(actItem.creation_date);
 
+                //Get title and desc
+                actItem.title = $filter('infoItem')(actItem, "title");
+                actItem.snippet = $filter('infoItem')(actItem, "snippet");
+
                 // This week
                 if (actItem.date >= $scope.lastWeek) {
                     $scope.itemThisWeek.push(actItem);
@@ -42,9 +50,18 @@ angular.module('SalesFetchApp.controllers', []).
                 }
             }
           
-            console.log(data.datas);
+            console.log("timeline : ", data.datas);
             $scope.items = data.datas;
             $scope.loading = false;
+          })
+          .error(function(data) {
+              console.log('Error', data);
+          });
+
+
+        $http({method: 'GET', url: documentTypesUrl})
+          .success(function(data, status, headers, config) {
+            console.log("documentsTypes : ", data.document_types);
           })
           .error(function(data) {
               console.log('Error', data);

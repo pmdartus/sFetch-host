@@ -1,0 +1,63 @@
+{
+    "_type": "Company",
+    "id": "52865abf03a470e208000001",
+    "name": "salesfetch@gmail.com",
+    "users_url": "/users",
+    "user_url": "/user",
+    "documents_url": "/documents",
+    "provider_status": [
+        {
+            "application": "5281216103a470f9ce000043",
+            "updated": "2013-11-18T23:55:34.697Z",
+            "name": "Salesforce"
+        }
+    ],
+    "document_types": [
+        {
+            "_type": "DocumentType",
+            "id": "5252ce4ce4cfcd16f55cfa3a",
+            "name": "contact",
+            "type": "semantic",
+            "template_snippet": "<article>\n  <img src=\"{{ image }}\" />\n  <section>\n    <h1>{{{ name }}}</h1>\n    <p class=\"text-small\">{{{ job }}}</p>\n  </section>\n</article>\n",
+            "template_full": "<article>\n  <img src=\"{{ image }}\" />\n  <h1>{{{ name }}}</h1>\n  <p>{{{ job }}}</p>\n\n  <p>Phones:\n  <ul>\n    {{ #phone }}<li>{{ phone }} ( {{ type }} )</li>{{ /phone }}\n  </ul>\n  <p>Email:\n  <ul>\n    {{ #email }}<li>{{ email }} ( {{ type }} )</li>{{ /email }}\n  </ul>\n</article>\n",
+            "template_related": "--"
+        },
+        {
+            "_type": "DocumentType",
+            "id": "5252ce4ce4cfcd16f55cfa3b",
+            "name": "file",
+            "type": "binary",
+            "template_snippet": "<article>\n  <img src=\"https://raw.github.com/teambox/Free-file-icons/master/48px/{{ extension }}.png\" />\n  <section>\n    <h1>{{{ title }}}</h1>\n    <tt>{{ path }}</tt>\n  </section>\n</article>\n",
+            "template_full": "<article>\n  <img src=\"https://raw.github.com/teambox/Free-file-icons/master/48px/{{ extension }}.png\" />\n  <section>\n    <h1>{{{ title }}}</h1>\n    <tt>{{ path }}</tt>\n  </section>\n</article>\n",
+            "template_related": "--"
+        },
+        {
+            "_type": "DocumentType",
+            "id": "5252ce4ce4cfcd16f55cfa3c",
+            "name": "document",
+            "type": "binary",
+            "template_snippet": "<article>\n  <h1>{{{ title }}}</h1>\n  <p>{{{ snippet }}}</p>\n</article>\n",
+            "template_full": "<article>\n  <h1>{{{ title }}}</h1>\n  <tt>{{ path }}</tt>\n  <div>\n    {{{ content }}}\n  </div>\n</article>\n",
+            "template_related": "--"
+        },
+        {
+            "_type": "DocumentType",
+            "id": "5252ce4ce4cfcd16f55cfa3d",
+            "name": "image",
+            "type": "binary",
+            "template_snippet": "<article>\n  <h1>{{{ title }}}</h1>\n\n  <img src=\"{{ thumb }}\" />\n</article>\n",
+            "template_full": "<article>\n  <h1>{{{ title }}}</h1>\n\n  <img src=\"{{ display }}\" />\n</article>\n",
+            "template_related": "--"
+        },
+        {
+            "_type": "DocumentType",
+            "id": "5252ce4ce4cfcd16f55cfa41",
+            "name": "task",
+            "type": "semantic",
+            "template_snippet": "<article>\n\t<h1>{{subject}}</h1>\n\t<p>Status: {{status}}</p>\n</article>",
+            "template_full": "<article>\n\t<section>\n\t\t<h1>{{subject}}</h1>\n\t\t<p>Status: {{status}}</p>\n\t\t<p>Due date: {{dueDate}}</p>\n\t\t<p>\n\t\t\tAssigned to:\n\t\t</p>\n\t\t<ul>\n\t\t\t{{#assignedTo}}<li>{{.}}</li>{{/assignedTo}} \n\t\t</ul>\n\t</section>\n\t<p>{{description}}</p>\n</article>\n",
+            "template_related": "lol"
+        }
+    ],
+    "server_time": "2013-11-20T00:55:40.456Z"
+}

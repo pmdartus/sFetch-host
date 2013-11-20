@@ -2,9 +2,4 @@
 
 /* Directives */
 
-angular.module('SalesFetchApp.directives', []).
-  directive('appVersion', function (version) {
-    return function(scope, elm, attrs) {
-      elm.text(version);
-    };
-  });
+angular.module('SalesFetchApp.components', []);

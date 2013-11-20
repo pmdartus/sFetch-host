@@ -10,28 +10,28 @@ h1.title
     h3 Loading timeline for {{contact}}
     
   .timeline(ng-hide='loading')
-    h3(ng-show='itemsThisWeek.length') Recent
-    section.timeslice(ng-show='itemsThisWeek.length')
-      a(href='full/{{item.id}}').row.item(ng-repeat="item in itemsThisWeek | orderBy:'date':true")
-        .headerItem
-          .icons
-            img.iconItem(src='img/type/{{item.actions.show | srcImg:"type"}}.svg')
-            img.iconProvider(src='img/provider/{{item.actions.show | srcImg:"provider"}}_icon.svg')
-          .text
-            h2(ng-bind-html-unsafe='item.datas.title')
-            h2.date {{item.date | niceDate}}
-          br(clear='both')
-        p.details(ng-bind-html-unsafe='item.datas.snippet')
+    //- h3(ng-show='itemsThisWeek.length') Recent
+    //- section.timeslice(ng-show='itemsThisWeek.length')
+    //-   a(href='full/{{item.id}}').row.item(ng-repeat="item in itemsThisWeek | orderBy:'date':true")
+    //-     .headerItem
+    //-       .icons
+    //-         img.iconItem(src='img/type/{{item | srcImg:"type"}}.svg')
+    //-         img.iconProvider(src='img/provider/{{item.actions.show | srcImg:"provider"}}_icon.svg')
+    //-       .text
+    //-         h2(ng-bind-html-unsafe='item.datas.title')
+    //-         h2.date {{item.date | niceDate}}
+    //-       br(clear='both')
+    //-     p.details(ng-bind-html-unsafe='item.datas.snippet')
 
-    h3(ng-show='itemsLastWeek.length') Before {{lastWeek | niceDate}}
+    h3(ng-show='itemsLastWeek.length')  Before {{lastWeek | niceDate}}
     section.timeslice(ng-show='itemsLastWeek.length')
       a(href='full/{{item.id}}').row.item(ng-repeat="item in itemsLastWeek | orderBy:'date':true")
         .headerItem
           .icons
-            img.iconItem(src='img/type/{{item.actions.show | srcImg:"type"}}.svg')
-            img.iconProvider(src='img/provider/{{item.actions.show | srcImg:"provider"}}_icon.svg')
+            img.iconItem(src='img/type/{{item | infoItem:"type"}}.svg')
+            img.iconProvider(src='img/provider/{{item | infoItem:"provider"}}_icon.svg')
           .text
-            h2(ng-bind-html-unsafe='item.datas.title')
+            h2(ng-bind-html-unsafe='item.title')
             h2.date {{item.date | niceDate}}
           br(clear='both')
-        p.details(ng-bind-html-unsafe='item.datas.snippet')
+        p.details(ng-bind-html-unsafe='item.snippet')
