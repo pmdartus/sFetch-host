@@ -23,8 +23,8 @@ angular.module('SalesFetchApp.controllers', [])
         
         $scope.loading = true;
         // DEBUG
-        //var timelineUrl = "/offline_smith.json";
-        var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
+        var timelineUrl = "/offline_smith.json";
+        //var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
 
 
         $http.defaults.headers.common['Authorization'] = 'token ' + $scope.token;
