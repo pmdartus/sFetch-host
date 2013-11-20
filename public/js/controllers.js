@@ -9,7 +9,7 @@ angular.module('SalesFetchApp.controllers', [])
     //                          TimelineCtrl
     //-------------------------------------------------------------------------
 
-    .controller('TimelineCtrl', function($scope, $http, $filter, $routeParams, $location, Base64) {
+    .controller('TimelineCtrl', function($scope, $http, $filter, $routeParams, $location) {
       // $scope.toggleFilter = false;
       $scope.filtersType = new Object();
       $scope.Object = Object;
@@ -27,7 +27,7 @@ angular.module('SalesFetchApp.controllers', [])
         var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
 
 
-        $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');
+        $http.defaults.headers.common['Authorization'] = 'token ' + $scope.token;
         $http({method: 'GET', url: timelineUrl})
           .success(function(data, status, headers, config) {
             //Init new arrays
@@ -93,7 +93,25 @@ angular.module('SalesFetchApp.controllers', [])
       $scope.sfID = $routeParams.ui;
       $scope.Date = Date;
       $scope.loading = true;
-      $scope.getTimeline();
+
+      //Verify user
+      $scope.sfID = $routeParams.ui;
+      $scope.token = $routeParams.token;
+      if ($scope.token) {
+        $scope.getTimeline();
+      } else {
+        $http({method: 'GET', url: 'http://provider-salesforce.herokuapp.com/token?sfid='+$scope.sfID})
+          .success(function(data, status, headers, config) {
+            if (status == 200) {
+              $scope.token = data.toString().slice(1, data.length-1);
+              $scope.getTimeline();
+            }
+          })
+          .error(function(data) {
+              //C LE BOWDEL
+              console.log('Error while logging user', data);
+          });
+      }
 
     })
 
@@ -102,10 +120,10 @@ angular.module('SalesFetchApp.controllers', [])
     //                          UserCtrl
     //-------------------------------------------------------------------------
 
-    .controller('UserCtrl', function($scope, $http, $filter, $routeParams, $location, Base64) {
+    .controller('UserCtrl', function($scope, $http, $filter, $routeParams, $location) {
       // Retrieve the user
       $scope.getUser = function() {
-        $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');
+        $http.defaults.headers.common['Authorization'] = 'token ' + $scope.token;
         $http({method: 'GET', url: 'http://api.anyfetch.com/'})
           .success(function(data, status, headers, config) {
             console.log(data);
@@ -137,7 +155,7 @@ angular.module('SalesFetchApp.controllers', [])
         if ($scope.canUpdate) {
           $scope.canUpdate = false;
 
-          $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');
+          $http.defaults.headers.common['Authorization'] = 'token ' + $scope.token;
           $http({method: 'POST', url: 'http://api.anyfetch.com/update'})
             .success(function(data, status, headers, config) {
               console.log(data, status);
@@ -149,11 +167,28 @@ angular.module('SalesFetchApp.controllers', [])
       };
 
       //Init the view
-      $scope.sfID = $routeParams.ui;
       $scope.canUpdate = false;
       $scope.lastUpdate = new Date(3600*24*1000); //Jan02_1970
       $scope.loading = true;
-      $scope.getUser();
+
+      //Verify user
+      $scope.sfID = $routeParams.ui;
+      $scope.token = $routeParams.token;
+      if ($scope.token) {
+        $scope.getUser();
+      } else {
+        $http({method: 'GET', url: 'http://provider-salesforce.herokuapp.com/token?sfid='+$scope.sfID})
+          .success(function(data, status, headers, config) {
+            if (status == 200) {
+              $scope.token = data.toString().slice(1, data.length-1);
+              $scope.getUser();
+            }
+          })
+          .error(function(data) {
+              //C LE BOWDEL
+              console.log('Error while logging user', data);
+          });
+      }
     })
 
 
@@ -161,10 +196,10 @@ angular.module('SalesFetchApp.controllers', [])
     //                          DocumentCtrl
     //-------------------------------------------------------------------------
     
-    .controller('DocumentCtrl', function($scope, $http, $filter, $routeParams, $location, Base64) {
+    .controller('DocumentCtrl', function($scope, $http, $filter, $routeParams, $location) {
       // Retrieve the document
       $scope.getDocument = function() {
-        $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');
+        $http.defaults.headers.common['Authorization'] = 'token ' + $scope.token;
         $http({method: 'GET', url: 'http://api.anyfetch.com/documents/'+$scope.document})
           .success(function(data, status, headers, config) {
             console.log(data);
@@ -182,10 +217,29 @@ angular.module('SalesFetchApp.controllers', [])
       $scope.backTimeline = function()  
       {
         console.log('Back to info');
-        $location.path('/timeline');
+        $location.path('/timeline').search('ui='+$scope.sfID,'name='+$scope.contact);
       };
 
       $scope.document = $routeParams.docId;
+      $scope.contact = $routeParams.name;
       $scope.loading = true;
-      $scope.getDocument();
+
+      //Verify user
+      $scope.sfID = $routeParams.ui;
+      $scope.token = $routeParams.token;
+      if ($scope.token) {
+        $scope.getDocument();
+      } else {
+        $http({method: 'GET', url: 'http://provider-salesforce.herokuapp.com/token?sfid='+$scope.sfID})
+          .success(function(data, status, headers, config) {
+            if (status == 200) {
+              $scope.token = data.toString().slice(1, data.length-1);
+              $scope.getDocument();
+            }
+          })
+          .error(function(data) {
+              //C LE BOWDEL
+              console.log('Error while logging user', data);
+          });
+      }
     });
