@@ -14,11 +14,11 @@ angular.module('SalesFetchApp.controllers', []).
         
         $scope.loading = true;
         // DEBUG
-        var timelineUrl = "/offline_smith.json";
-        //var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
+        //var timelineUrl = "/offline_smith.json";
+        var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
 
 
-        $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('salesfetch@gmail.com' + ':' + 'Dreamforce2013');
+        $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');
         $http({method: 'GET', url: timelineUrl})
           .success(function(data, status, headers, config) {
             //Init new arrays
