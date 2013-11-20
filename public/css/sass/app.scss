@@ -149,7 +149,7 @@ body, html {
     .filters {
         background: white;
         padding: 0 10px;
-        height: 125px;
+        height: 200px;
         border-bottom: 1px solid darken($neutral-color, 20);
         position: relative;
         overflow: hidden;
@@ -166,7 +166,9 @@ body, html {
             margin-top: 5px;
         }
 
-        input { margin: 0; }
+        input {
+            margin: 5px 0;
+        }
     }
     
     .tongue {

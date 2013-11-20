@@ -16,7 +16,11 @@ config(function ($routeProvider, $locationProvider) {
   $routeProvider.
     when('/timeline', {
       templateUrl: 'partials/timeline',
-      controller: 'ContactCtrl'
+      controller: 'TimelineCtrl'
+    }).
+    when('/user', {
+      templateUrl: 'partials/user',
+      controller: 'UserCtrl'
     }).
     when('/full/:docId', {
       templateUrl: 'partials/document',

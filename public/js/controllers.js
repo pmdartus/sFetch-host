@@ -2,9 +2,14 @@
 
 /* Controllers */
 
-angular.module('SalesFetchApp.controllers', []).
-  controller('AppCtrl', function ($scope, $http) {
-  }).controller('ContactCtrl', function($scope, $http, $filter, $routeParams, $location, Base64) {
+angular.module('SalesFetchApp.controllers', [])
+    .controller('AppCtrl', function ($scope, $http) {
+    })
+    //-------------------------------------------------------------------------
+    //                          TimelineCtrl
+    //-------------------------------------------------------------------------
+
+    .controller('TimelineCtrl', function($scope, $http, $filter, $routeParams, $location, Base64) {
       // $scope.toggleFilter = false;
       $scope.filtersType = new Object();
       $scope.Object = Object;
@@ -18,8 +23,8 @@ angular.module('SalesFetchApp.controllers', []).
         
         $scope.loading = true;
         // DEBUG
-        var timelineUrl = "/offline_smith.json";
-        // var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
+        // var timelineUrl = "/offline_smith.json";
+        var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
 
 
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');
@@ -89,7 +94,38 @@ angular.module('SalesFetchApp.controllers', []).
       $scope.loading = true;
       $scope.getTimeline();
 
-    }).controller('DocumentCtrl', function($scope, $http, $filter, $routeParams, $location, Base64) {
+    })
+
+
+    //-------------------------------------------------------------------------
+    //                          UserCtrl
+    //-------------------------------------------------------------------------
+
+    .controller('UserCtrl', function($scope, $http, $filter, $routeParams, $location, Base64) {
+      // Retrieve the document
+      $scope.getUser = function() {
+        $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');
+        $http({method: 'GET', url: 'http://api.anyfetch.com/'})
+          .success(function(data, status, headers, config) {
+            console.log(data);
+            $scope.userData = data;
+          })
+          .error(function(data) {
+              console.log('Error', data);
+          });
+      };
+
+      $scope.document = $routeParams.docId;
+      $scope.loading = true;
+      $scope.getDocument();
+    })
+
+
+    //-------------------------------------------------------------------------
+    //                          DocumentCtrl
+    //-------------------------------------------------------------------------
+    
+    .controller('DocumentCtrl', function($scope, $http, $filter, $routeParams, $location, Base64) {
       // Retrieve the document
       $scope.getDocument = function() {
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('sfetch@sfetch.fr' + ':' + 'Dreamforce2013');

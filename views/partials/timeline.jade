@@ -1,9 +1,10 @@
 .wrapFilters
   .filters(ng-class="{collapsed: !toggleFilter}")
     h3 Filters
-    a(ng-show="Object.keys(filtersType).length", ng-click="filtersType = {}") Reset
+    a(ng-show="Object.keys(filtersType).length || filterName", ng-click="filtersType = {}; filterName = ''") Reset
 
     .custom
+      input(type="text", ng-model="filterName")
       label(for="documents")
         input(type="checkbox", id="documents", ng-model="filtersType['5252ce4ce4cfcd16f55cfa3c']")
         span.custom.checkbox
@@ -36,7 +37,7 @@
 
     h3(ng-show='itemThisWeek.length')  This Week
     section.timeslice(ng-show='itemThisWeek.length')
-      a(href='full/{{item.id}}').row.item(ng-repeat="item in itemThisWeek | orderBy:'date':true", ng-show="filtersType[item.binary_document_type] || filtersType[item.semantic_document_type] || !Object.keys(filtersType).length")
+      a(href='full/{{item.id}}').row.item(ng-repeat="item in itemThisWeek | filter:filterName | orderBy:'date':true", ng-show="filtersType[item.binary_document_type] || filtersType[item.semantic_document_type] || !Object.keys(filtersType).length")
         .headerItem
           .icons
             img.iconItem(src='img/type/{{item | infoItem:"type"}}.svg')
