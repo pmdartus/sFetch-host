@@ -54,15 +54,15 @@
           br(clear='both')
         p.details(ng-bind-html-unsafe='item.snippet')
 
-    //- h3(ng-show='itemsLastWeek.length')  Before {{lastWeek | niceDate:false}}
-    //- section.timeslice(ng-show='itemsLastWeek.length')
-    //-   a(href='full/{{item.id}}').row.item(ng-repeat="item in itemsLastWeek | orderBy:'date':true")
-    //-     .headerItem
-    //-       .icons
-    //-         img.iconItem(src='img/type/{{item | infoItem:"type"}}.svg')
-    //-         img.iconProvider(src='img/provider/{{item | infoItem:"provider"}}_icon.svg')
-    //-       .text
-    //-         h2(ng-bind-html-unsafe='item.title')
-    //-         h2.date {{item.date | niceDate:false}}
-    //-       br(clear='both')
-    //-     p.details(ng-bind-html-unsafe='item.snippet')
+    h3(ng-show='itemLastWeek.length')  This Week
+    section.timeslice(ng-show='itemLastWeek.length')
+      a(href='full/{{item.id}}?ui={{sfID}}&name={{contact}}&token={{token}}').row.item(ng-repeat="item in itemLastWeek | filter:filterName | orderBy:'date':true", ng-show="filtersType[item.binary_document_type] || filtersType[item.semantic_document_type] || !Object.keys(filtersType).length")
+        .headerItem
+          .icons
+            img.iconItem(src='img/type/{{item | infoItem:"type"}}.svg')
+            img.iconProvider(src='img/provider/{{item | infoItem:"provider"}}_icon.svg')
+          .text
+            h2(ng-bind-html-unsafe='item.title')
+            h2.date {{item.date | niceDate:false}}
+          br(clear='both')
+        p.details(ng-bind-html-unsafe='item.snippet')

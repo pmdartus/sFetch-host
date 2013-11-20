@@ -43,7 +43,7 @@ angular.module('SalesFetchApp.controllers', [])
                 var actItem = data.datas[i];
 
                 //Delete contacts
-                if (actItem.semantic_document_type == "5252ce4ce4cfcd16f55cfa3a") {
+                if (actItem.semantic_document_type == "5252ce4ce4cfcd16f55cfa3a" || actItem.id == "528d2e4cbef6629f05000006") {
                     // console.log('Getting rid of contact');
                     data.datas.splice(i, 1);
                     i--;
