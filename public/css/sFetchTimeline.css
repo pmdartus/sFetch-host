@@ -1,0 +1,31 @@
+.SFetch_cardHeader{
+    padding: 3px 7px 3px;
+    color: #3C3D3E;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.SFetch_cardHeader .headerIcon{
+    float: left;
+    margin-right: 7px;
+}
+.SFetch_cardHeader .smallIcon{
+    width: 30px;
+    height: 30px;
+}
+.SFetch_cardHeader .smallIcon img{
+    width: 30px;
+    height: 30px;
+    display: block;
+    border-radius: 3px;
+}
+.SFetch_cardHeader .headerLabel{
+    line-height: 30px;
+    clear: both;
+    font-family: Sans-serif !important;
+    color: #3C3D3E;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+}
