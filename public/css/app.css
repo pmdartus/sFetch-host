@@ -7437,7 +7437,7 @@ body p, html p {
 .timeline .timeslice .item .headerItem .icons {
   width: 40px;
   position: relative;
-  left: 10px;
+  left: 0px;
   top: -5px;
   float: left;
 }
@@ -7450,14 +7450,15 @@ body p, html p {
 }
 /* line 285, sass/app.scss */
 .timeline .timeslice .item .headerItem .text {
-  margin: 5px 0 0 60px;
+  margin: 5px 0 0 50px;
 }
 /* line 288, sass/app.scss */
 .timeline .timeslice .item .headerItem .text h2 {
   margin: 0px;
+  font-size: 0.9em;
   padding-left: 0;
 }
-/* line 295, sass/app.scss */
+/* line 296, sass/app.scss */
 .timeline .timeslice .item p {
   clear: both;
   margin: 10px 0 5px;

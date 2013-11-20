@@ -269,7 +269,7 @@ body, html {
                 .icons {
                     width: 40px;
                     position: relative;
-                    left: 10px;
+                    left: 0px;
                     top: -5px;
                     float: left;
                     
@@ -283,10 +283,11 @@ body, html {
                 }
                 
                 .text {
-                    margin: 5px 0 0 60px;
+                    margin: 5px 0 0 50px;
                     
                     h2 {
                         margin: 0px;
+                        font-size: 0.9em;
                         padding-left: 0;
                     }
                 }

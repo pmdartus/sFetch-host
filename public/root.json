@@ -1,14 +1,34 @@
 {
     "_type": "Company",
-    "id": "52865abf03a470e208000001",
-    "name": "salesfetch@gmail.com",
+    "id": "528bb93203a470e9f8000001",
+    "name": "sfetch@sfetch.fr",
     "users_url": "/users",
     "user_url": "/user",
     "documents_url": "/documents",
     "provider_status": [
         {
+            "application": "528c2239ef05367ec3000009",
+            "updated": "2013-11-20T02:49:03.394Z",
+            "name": "Evernote"
+        },
+        {
             "application": "5281216103a470f9ce000043",
-            "updated": "2013-11-18T23:55:34.697Z",
+            "updated": "2013-11-20T02:49:00.168Z",
+            "name": "Salesforce"
+        },
+        {
+            "application": "5252cedd03a470843f000004",
+            "updated": "2013-11-19T20:23:19.796Z",
+            "name": "Dropbox"
+        },
+        {
+            "application": "5252cedd03a470843f000004",
+            "updated": "2013-11-19T20:24:36.978Z",
+            "name": "Dropbox"
+        },
+        {
+            "application": "5281216103a470f9ce000043",
+            "updated": "2013-11-20T02:49:14.660Z",
             "name": "Salesforce"
         }
     ],
@@ -51,6 +71,15 @@
         },
         {
             "_type": "DocumentType",
+            "id": "5252ce4ce4cfcd16f55cfa40",
+            "name": "event",
+            "type": "semantic",
+            "template_snippet": "<article>\n\t<section>\n\t\t<h1>{{name}}</h1>\n\t\t<p>{{startDate}} - {{endDate}}</p>\n\t</section>\n</article>",
+            "template_full": "<article>\n\t<section>\n\t\t<h1>{{name}}</h1>\n\t\t<p>{{startDate}} - {{endDate}}</p>\n\t\t{{ #attendee }}<li>{{.}}</li>{{ /attendee }}\t\n\t</section>\n\t<p>{{description}}</p>\n</article>",
+            "template_related": "lol"
+        },
+        {
+            "_type": "DocumentType",
             "id": "5252ce4ce4cfcd16f55cfa41",
             "name": "task",
             "type": "semantic",
@@ -59,5 +88,5 @@
             "template_related": "lol"
         }
     ],
-    "server_time": "2013-11-20T00:55:40.456Z"
+    "server_time": "2013-11-20T03:42:03.570Z"
 }
