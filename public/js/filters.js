@@ -84,7 +84,11 @@ angular.module('SalesFetchApp.filters', []).
                         case "provider":
                             return "salesforce";
                         case "type":
-                            return "task";
+                            if (item.datas.status.toLowerCase() == "completed") {
+                                return "task_ok";
+                            } else {
+                                return "task_ko";
+                            }
                         case "title":
                             return item.datas.subject;
                         case "snippet":

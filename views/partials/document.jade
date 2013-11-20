@@ -1,9 +1,10 @@
 ng-include(src="'partials/timelineHeader'")
 
 .wrapperLoading
-	a(ng-click="backTimeline()").back < Back
+	a(ng-click="backTimeline()").back
+		img(src="img/back.svg")
 	.loading(ng-show='loading')
 		.buble.document
 
-div
+div.wrapper
 	ng-include(src='templateUrl')
