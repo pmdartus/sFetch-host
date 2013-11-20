@@ -16,8 +16,6 @@ angular.module('SalesFetchApp.controllers', []).
         // DEBUG
         var timelineUrl = "/offline_smith.json";
         //var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
-        var documentTypesUrl = "/root.json";
-        //var documentTypesUrl = 'http://api.anyfetch.com/';
 
 
         $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('salesfetch@gmail.com' + ':' + 'Dreamforce2013');
@@ -34,19 +32,27 @@ angular.module('SalesFetchApp.controllers', []).
 
             for (var i = 0; i < data.datas.length; i++) {
                 var actItem = data.datas[i];
-                actItem.date = new Date(actItem.creation_date);
 
-                //Get title and desc
-                actItem.title = $filter('infoItem')(actItem, "title");
-                actItem.snippet = $filter('infoItem')(actItem, "snippet");
+                //Delete contacts
+                if (actItem.semantic_document_type == "5252ce4ce4cfcd16f55cfa3a") {
+                    // console.log('Getting rid of contact');
+                    data.datas.splice(i, 1);
+                    i--;
+                } else {
+                    actItem.date = new Date(actItem.creation_date);
 
-                // This week
-                if (actItem.date >= $scope.lastWeek) {
-                    $scope.itemThisWeek.push(actItem);
-                }
-                // After this week
-                else {
-                    $scope.itemsLastWeek.push(actItem);
+                    //Get title and desc
+                    actItem.title = $filter('infoItem')(actItem, "title");
+                    actItem.snippet = $filter('infoItem')(actItem, "snippet");
+
+                    // This week
+                    if (actItem.date >= $scope.lastWeek) {
+                        $scope.itemThisWeek.push(actItem);
+                    }
+                    // After this week
+                    else {
+                        $scope.itemsLastWeek.push(actItem);
+                    }
                 }
             }
           
@@ -58,14 +64,15 @@ angular.module('SalesFetchApp.controllers', []).
               console.log('Error', data);
           });
 
-
+        /*var documentTypesUrl = "/root.json";
+        //var documentTypesUrl = 'http://api.anyfetch.com/';
         $http({method: 'GET', url: documentTypesUrl})
           .success(function(data, status, headers, config) {
             console.log("documentsTypes : ", data.document_types);
           })
           .error(function(data) {
               console.log('Error', data);
-          });
+          });*/
       };
 
       $scope.displayDocument = function(docId) {
