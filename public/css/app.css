@@ -7474,7 +7474,7 @@ body p, html p {
 .loading h3 {
   color: #333;
   text-shadow: 1px 1px white;
-  text-indent: 33px;
+  text-indent: 50px;
   float: left;
   position: relative;
   width: 100%;
@@ -7541,7 +7541,7 @@ body p, html p {
 
 /* line 362, sass/app.scss */
 .wrapperTimeline {
-  top: -20px;
+  margin-top: -20px;
   z-index: 20;
   padding-top: 10px;
 }
@@ -7552,12 +7552,13 @@ body p, html p {
   top: 0;
   left: 5px;
   min-height: 20px;
+  height: 100%;
   border-left: #d4d4d4 3px solid;
 }
 
 /* line 374, sass/app.scss */
 .timeline {
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 /* line 377, sass/app.scss */
 .timeline h3 {
