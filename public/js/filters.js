@@ -122,7 +122,7 @@ angular.module('SalesFetchApp.filters', []).
                         case "provider":
                             return "exacttarget";
                         case "type":
-                            /*if (item.datas.status.toLowerCase() == "open") {
+                            if (item.datas.status.toLowerCase() == "open") {
                                 return "mail_open";
                             } else if (item.datas.status.toLowerCase() == "delivred") {
                                 return "mail_delivred";
@@ -130,10 +130,9 @@ angular.module('SalesFetchApp.filters', []).
                                 return "mail_sent";
                             } else {
                                 return "mail";
-                            }*/
-                            return "mail_sent";
+                            }
                         case "title":
-                            return "[Sent] " + item.datas.campaign_name;
+                            return "[" + item.datas.status + "] " + item.datas.campaign_name;
                         case "snippet":
                             return item.datas.subject;
                     }
