@@ -23,8 +23,8 @@ angular.module('SalesFetchApp.controllers', [])
         
         $scope.loading = true;
         // DEBUG
-        //var timelineUrl = "/offline_smith.json";
-        var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
+        var timelineUrl = "/offline_smith.json";
+        // var timelineUrl = 'http://api.anyfetch.com/documents?search='+$scope.contact+'&limit=50';
 
 
         $http.defaults.headers.common['Authorization'] = 'token ' + $scope.token;
@@ -110,6 +110,8 @@ angular.module('SalesFetchApp.controllers', [])
           .error(function(data) {
               //C LE BOWDEL
               console.log('Error while logging user', data);
+              $scope.loading = false;
+              $scope.erreurUser = erreur;
           });
       }
 
@@ -187,6 +189,8 @@ angular.module('SalesFetchApp.controllers', [])
           .error(function(data) {
               //C LE BOWDEL
               console.log('Error while logging user', data);
+              $scope.loading = false;
+              $scope.erreurUser = erreur;
           });
       }
     })
@@ -222,6 +226,7 @@ angular.module('SalesFetchApp.controllers', [])
 
       $scope.document = $routeParams.docId;
       $scope.contact = $routeParams.name;
+      $scope.emailUrl = $routeParams.emailUrl;
       $scope.loading = true;
 
       //Verify user
@@ -240,6 +245,8 @@ angular.module('SalesFetchApp.controllers', [])
           .error(function(data) {
               //C LE BOWDEL
               console.log('Error while logging user', data);
+              $scope.loading = false;
+              $scope.erreurUser = erreur;
           });
       }
     });

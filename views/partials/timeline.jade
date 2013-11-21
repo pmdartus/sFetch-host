@@ -43,7 +43,7 @@
 
     h3(ng-show='itemThisWeek.length')  This Week
     section.timeslice(ng-show='itemThisWeek.length')
-      a(href='full/{{item.id}}?ui={{sfID}}&name={{contact}}&token={{token}}').row.item(ng-repeat="item in itemThisWeek | filter:filterName | orderBy:'date':true", ng-show="filtersType[item.binary_document_type] || filtersType[item.semantic_document_type] || !Object.keys(filtersType).length")
+      a(href='full/{{item.id}}?ui={{sfID}}&name={{contact}}&token={{token}}&emailUrl={{item.actions.show}}').row.item(ng-repeat="item in itemThisWeek | filter:filterName | orderBy:'date':true", ng-show="filtersType[item.binary_document_type] || filtersType[item.semantic_document_type] || !Object.keys(filtersType).length")
         .headerItem
           .icons
             img.iconItem(src='img/type/{{item | infoItem:"type"}}.svg')
