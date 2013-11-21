@@ -1,6 +1,8 @@
 # sFetch-host
 
-A Node/Ember server running salesFetch HTML/CSS & Javascript frontend. 
+A Node/Ember server running salesFetch HTML/CSS & Javascript frontend.
+
+Powered by Heroku. :)
 
 ## Running the app
 
